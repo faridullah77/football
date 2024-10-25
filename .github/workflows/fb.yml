@@ -25,7 +25,7 @@ jobs:
               run: flutter build web
 
     deploy:
-        runs-on: ubuntu-latest  # Ubuntu is a good choice for deployment jobs, more common for CI/CD
+        runs-on: macos-latest  # Ubuntu is a good choice for deployment jobs, more common for CI/CD
         needs: build
 
         steps:
