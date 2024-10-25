@@ -1,4 +1,4 @@
-name: Football 
+name: Football
 
 on:
     push:
@@ -25,8 +25,8 @@ jobs:
               run: flutter build web
 
     deploy:
-        runs-on: macos-latest
-        needs: build  # This ensures the deploy job runs after the build job
+        runs-on: ubuntu-latest  # Ubuntu is a good choice for deployment jobs, more common for CI/CD
+        needs: build
 
         steps:
             - name: Checkout Code
@@ -36,5 +36,5 @@ jobs:
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./build/web  # Directory containing the built web app files
-                  publish_branch: gh-pages  # Deploy to the gh-pages branch
+                  publish_dir: ./build/web
+                  publish_branch: gh-pages
