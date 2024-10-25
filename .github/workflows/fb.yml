@@ -25,7 +25,7 @@ jobs:
               run: flutter build web
 
     deploy:
-        runs-on: ubuntu-latest
+        runs-on: macos-latest
         needs: build  # This ensures the deploy job runs after the build job
 
         steps:
@@ -37,4 +37,4 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./build/web  # Directory containing the built web app files
-                  publish_branch: main  # Deploy to the main branch
+                  publish_branch: gh-pages  # Deploy to the gh-pages branch
